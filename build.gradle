@@ -1,0 +1,39 @@
+plugins {
+    id 'java-library'
+}
+
+group 'com.aipers.groupware'
+version '0.0.1-RELEASE'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    api 'com.github.aipers:common-utils:0.0.1'
+    api 'ognl:ognl:3.3.3'
+    api 'aopalliance:aopalliance:1.0'
+    api 'io.r2dbc:r2dbc-spi:1.0.0.RELEASE'
+    api 'io.projectreactor:reactor-core:3.4.24'
+
+    implementation 'org.slf4j:slf4j-simple:2.0.3'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+test {
+    useJUnitPlatform()
+}
